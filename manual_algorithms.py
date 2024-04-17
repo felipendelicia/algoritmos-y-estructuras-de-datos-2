@@ -1,4 +1,4 @@
-def busqueda_lineal(arr:list[int], element:int)->int:
+def lineal_search(arr:list[int], element:int)->int:
     # Inicializar un índice para recorrer la lista
     i = 0;
 
@@ -11,7 +11,7 @@ def busqueda_lineal(arr:list[int], element:int)->int:
     if i < len(arr): return i
     else: return -1
 
-def busqueda_binaria(arr:list[int], element:int, left:int, right:int)->int:
+def binary_search(arr:list[int], element:int, left:int, right:int)->int:
     
     while left <= right:
         # Calcular el índice medio del arreglo
