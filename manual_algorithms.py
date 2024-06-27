@@ -31,12 +31,8 @@ def binary_search(arr:list[int], element:int, left:int, right:int)->int:
     return -1
 
 def insertion_sort(arr: list[int]) -> list[int]:
-    # Recorremos la lista desde el segundo elemento hasta el final
     for j in range(1, len(arr)):
-        # Guardamos el valor del elemento actual en la variable 'key'
         key = arr[j]
-
-        # Inicializamos 'i' con el índice del elemento anterior a 'j'
         i = j - 1
 
         # Desplazamos hacia la derecha los elementos de la lista
@@ -48,13 +44,18 @@ def insertion_sort(arr: list[int]) -> list[int]:
         # Insertamos 'key' en su posición correcta
         arr[i + 1] = key
 
-    # Devolvemos la lista ordenada
-    return arr
+array = [34,2,5,6,8,7, 6]
 
+def selection_sort(arr: list[int])->list[int]:
+    for i in range(len(arr)):
+        min_index = i
 
+        for j in range(i + 1, len(arr)):
+            if arr[min_index] > arr[j]:
+                min_index = j
 
-array = [34,2,5,6,8,7]
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
-insertion_sort(array)
+selection_sort(array)
 
 print(array)
