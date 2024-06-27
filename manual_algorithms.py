@@ -12,7 +12,6 @@ def lineal_search(arr:list[int], element:int)->int:
     else: return -1
 
 def binary_search(arr:list[int], element:int, left:int, right:int)->int:
-    
     while left <= right:
         # Calcular el índice medio del arreglo
         mid = (left + right) // 2
@@ -30,3 +29,32 @@ def binary_search(arr:list[int], element:int, left:int, right:int)->int:
             
     # Si el objetivo no está en el arreglo, retornar -1
     return -1
+
+def insertion_sort(arr: list[int]) -> list[int]:
+    # Recorremos la lista desde el segundo elemento hasta el final
+    for j in range(1, len(arr)):
+        # Guardamos el valor del elemento actual en la variable 'key'
+        key = arr[j]
+
+        # Inicializamos 'i' con el índice del elemento anterior a 'j'
+        i = j - 1
+
+        # Desplazamos hacia la derecha los elementos de la lista
+        # que sean mayores que 'key' para hacer espacio para 'key'
+        while i >= 0 and arr[i] > key:
+            arr[i + 1] = arr[i]
+            i = i - 1
+
+        # Insertamos 'key' en su posición correcta
+        arr[i + 1] = key
+
+    # Devolvemos la lista ordenada
+    return arr
+
+
+
+array = [34,2,5,6,8,7]
+
+insertion_sort(array)
+
+print(array)
