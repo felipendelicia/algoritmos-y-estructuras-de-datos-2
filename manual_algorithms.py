@@ -46,16 +46,26 @@ def insertion_sort(arr: list[int]) -> list[int]:
 
 array = [34,2,5,6,8,7, 6]
 
-def selection_sort(arr: list[int])->list[int]:
+def selection_sort(arr: list[int]) -> list[int]:
     for i in range(len(arr)):
+        # Inicialmente, asumimos que el elemento actual es el mínimo
         min_index = i
 
+        # Recorremos el resto de la lista para encontrar el elemento más pequeño
         for j in range(i + 1, len(arr)):
+            # Si encontramos un elemento más pequeño, actualizamos min_index
             if arr[min_index] > arr[j]:
                 min_index = j
 
+        # Intercambiamos el elemento actual con el elemento más pequeño encontrado
         arr[i], arr[min_index] = arr[min_index], arr[i]
 
-selection_sort(array)
+def bubble_sort(arr: list[int]) -> list[int]:
+    for i in range(len(arr)):
+        # Recorremos la lista desde el principio hasta el último elemento no ordenado
+        for j in range(len(arr) - 1 - i):
+            # Si el elemento actual es mayor que el siguiente, los intercambiamos
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 print(array)
