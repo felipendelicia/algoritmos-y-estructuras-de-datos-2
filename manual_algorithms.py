@@ -68,4 +68,37 @@ def bubble_sort(arr: list[int]) -> list[int]:
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
-print(array)
+def merge(left_arr:list[int], right_arr:list[int])->list[int]:
+    result = []
+
+    while len(left_arr) > 0 and len(right_arr) > 0:
+        if left_arr[0] > right_arr[0]:
+            result.append(right_arr[0])
+            right_arr.pop(0)
+        else:
+            result.append(left_arr[0])
+            left_arr.pop(0)
+    
+    while len(left_arr) > 0:
+        result.append(left_arr[0])
+        left_arr.pop(0)
+
+    while len(right_arr) > 0:
+        result.append(right_arr[0])
+        right_arr.pop(0)
+
+    return result
+
+def merge_sort(arr: list[int])->list[int]:
+    if len(arr) == 1: return arr
+    
+    middle = len(arr) // 2
+    left_arr = arr[:middle]
+    right_arr = arr[middle:]
+
+    sorted_left_arr = merge_sort(left_arr)
+    sorted_right_arr = merge_sort(right_arr)
+
+    return merge(sorted_left_arr, sorted_right_arr)
+
+print(merge_sort(array))
